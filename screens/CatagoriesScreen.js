@@ -5,7 +5,9 @@ import CatagoryGridItem from "../components/CatagoryGridItem";
 function CatagoriesScreen(props) {
   function renderCatagoryItem(itemData) {
     function pressHandler() {
-      props.navigation.navigate("Meals Overview");
+      props.navigation.navigate("MealsOverview", {
+        categoryId: itemData.item.id,
+      });
     }
 
     return (
