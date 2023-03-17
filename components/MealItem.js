@@ -6,12 +6,22 @@ import {
   StyleSheet,
   Platform,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 function MealItem(props) {
+  const navigation = useNavigation();
+
+  function pressHandler() {
+    navigation.navigate("MealDetails", {
+      mealId: props.id,
+    });
+  }
+
   return (
     <View style={styles.itemRootContainer}>
       <Pressable
         style={({ pressed }) => (pressed ? styles.buttonPressed : null)}
+        onPress={pressHandler}
       >
         <View style={styles.innerContainer}>
           <View>
